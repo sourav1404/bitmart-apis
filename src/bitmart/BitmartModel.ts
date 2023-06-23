@@ -43,9 +43,11 @@ class BitmartModel extends Bitmart {
     });
     return order;
   };
-  getOrder = async (symbol:string,orderId:string) => {
-    const cancelOrder = await this.privateRequest('get',`/spot/v1/order_detail?symbol='${symbol}'&order_id=${orderId}`,`symbol='${symbol}'&order_id=${orderId}`);
-    return cancelOrder;
+  getOrder = async (orderId:string) => {
+    const getOrder = await this.privateRequest('post', 'spot/v4/query/order', {
+      orderId:orderId
+    });
+    return getOrder;
   };
   testGet = async()=>{
     const test = await this.privateRequest('get','/spot/v1/test-get?symbol=BTC_USDT','symbol=BTC_USDT');
