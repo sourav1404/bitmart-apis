@@ -5,7 +5,7 @@ declare class BitmartModel extends Bitmart {
     getBalance: () => Promise<any>;
     placeMarketOrder: (symbol: string, side: string, size: number) => Promise<any>;
     placeLimitOrder: (symbol: string, side: string, size: number, price: number) => Promise<any>;
-    getOrder: (symbol: string, orderId: string) => Promise<any>;
+    getOrder: (orderId: string) => Promise<any>;
     testGet: () => Promise<any>;
     testPost: () => Promise<any>;
     cancelOrder: (symbol: string, orderId: string) => Promise<any>;
